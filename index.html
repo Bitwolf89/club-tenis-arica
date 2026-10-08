@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salvemos el Club Escuela de Tenis Arica | 40 Años de Historia</title>
+  
+  <meta name="description" content="Más de 40 años formando generaciones de deportistas, niñas, niños y personas mayores en Arica frente a la orden de desalojo municipal. Conoce la historia y firma el petitorio.">
+  <meta property="og:title" content="Salvemos el Club Escuela de Tenis Arica">
+  <meta property="og:description" content="Una historia que merece seguir jugando. El tenis de Arica no debería perder sus espacios.">
+  <meta property="og:image" content="assets/cancha-ocaso.jpg">
+  <meta name="theme-color" content="#070d1e">
+  <link rel="icon" href="assets/logo-pelota.png">
+
+  <!-- Tipografías: Outfit (Titulares limpios y potentes) + Plus Jakarta Sans (Lectura clara) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Alerta Cívica Superior -->
+  <div class="alert-banner">
+    <div class="alert-banner__inner">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="alert-badge">Causa Urgente</span>
+        <span>El alcalde Orlando Vargas solicitó el desalojo de más de 40 años de historia deportiva.</span>
+      </div>
+      <a href="#carta" class="alert-link">Firmar Carta de Apoyo →</a>
+    </div>
+  </div>
+
+  <!-- Barra de Navegación -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__container">
+      <a href="#hero" class="navbar__brand">
+        <img src="assets/logo-horizontal-claro.png" alt="Club Escuela de Tenis Arica" class="navbar__logo">
+      </a>
+      
+      <nav class="navbar__nav">
+        <a href="#historia" class="navbar__link">Historia y Cronología</a>
+        <a href="#comparativa" class="navbar__link">Antes y Ahora</a>
+        <a href="#voces" class="navbar__link">Voces del Club</a>
+        <a href="#carta" class="navbar__link">Carta al Alcalde</a>
+        <a href="#muro" class="navbar__link">Muro Comunitario</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="btn btn--whatsapp btn--sm" type="button" onclick="shareWhatsApp()">
+          Compartir WhatsApp
+        </button>
+        <a href="#carta" class="btn btn--gold btn--sm">
+          Firmar Apoyo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         HERO SECTION: IMPACTO EMOCIONAL & CIUDADANO
+         ======================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg-wrap">
+        <img src="assets/cancha-ocaso.jpg" alt="Cancha de Tenis Arica al atardecer" class="hero__bg-img" id="heroBg">
+        <div class="hero__gradient-overlay"></div>
+      </div>
+
+      <div class="hero__container">
+        <div class="hero__content">
+          <div class="hero__tag">
+            <span>Patrimonio Deportivo de Arica</span>
+          </div>
+          
+          <h1 class="hero__title">
+            Una historia que merece <br>
+            <span class="highlight-volt brush-underline">seguir jugando.</span>
+          </h1>
+
+          <p class="hero__description">
+            Por más de 40 años, el <strong>Club Escuela de Tenis Arica</strong> ha sido el hogar donde niñas, niños, familias y adultos mayores aprenden, compiten y conviven. Hoy nos enfrentamos a una orden de desalojo municipal que pone en riesgo este espacio de todos.
+          </p>
+
+          <div class="hero__cta-group">
+            <a href="#historia" class="btn btn--gold">
+              Conoce la Cronología
+            </a>
+            <a href="#carta" class="btn btn--outline">
+              Leer Carta al Alcalde
+            </a>
+          </div>
+
+          <div class="hero__stats">
+            <div>
+              <div class="hero__stat-num">+40</div>
+              <div class="hero__stat-label">Años de Historia</div>
+            </div>
+            <div>
+              <div class="hero__stat-num">3</div>
+              <div class="hero__stat-label">Generaciones Unidas</div>
+            </div>
+            <div>
+              <div class="hero__stat-num">+300</div>
+              <div class="hero__stat-label">Alumnos y Familias</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Informativa Flotante -->
+        <div class="hero__card">
+          <div class="hero__card-header">
+            <span class="hero__card-badge">Desalojo Solicitado</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Arica, Chile</span>
+          </div>
+          <img src="assets/escuela.jpg" alt="Niños y profesores del club" class="hero__card-img">
+          <h2 class="hero__card-title">¿Es justo que se queden sin un lugar donde entrenar?</h2>
+          <p class="hero__card-quote">
+            "No es solo un recinto deportivo; es el espacio donde cientos de jóvenes aprenden disciplina, respeto y vida sana."
+          </p>
+          <a href="#carta" class="btn btn--gold" style="width: 100%;">
+            Súmate con tu Firma
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         LÍNEA DE TIEMPO INTERACTIVA CON SCROLL TRACK
+         ======================================================== -->
+    <section class="timeline-section" id="historia">
+      <div class="section-head">
+        <span class="section-head__tag">Cronología Viva</span>
+        <h2 class="section-head__title">40 Años de Memoria frente al Desalojo</h2>
+        <p class="section-head__desc">
+          Haz scroll hacia abajo para recorrer cómo nació el club, cómo se transformó en tradición familiar y por qué hoy nos movilizamos para protegerlo.
+        </p>
+      </div>
+
+      <div class="timeline-wrap">
+        <!-- Pista Vertical de Progreso -->
+        <div class="timeline-track">
+          <div class="timeline-progress" id="timelineProgress"></div>
+        </div>
+
+        <!-- HITO 1: 1980s -->
+        <div class="timeline-item" data-step="1">
+          <div class="timeline-node"></div>
+          <div class="timeline-item__content">
+            <span class="timeline-item__era">Década de 1980 · Los Inicios</span>
+            <h3 class="timeline-item__title">Pioneros y las Primeras Canchas</h3>
+            <p class="timeline-item__text">
+              Con el Morro de fondo y el entusiasmo de un grupo de vecinos y profesores apasionados, nace la escuela de tenis. Niños con raquetas clásicas comenzaron a formarse en las primeras clínicas deportivas y torneos locales.
+            </p>
+          </div>
+          <div class="timeline-item__media" onclick="openLightbox('assets/ayer.jpg', 'Primeros alumnos en la red de las canchas históricas')">
+            <img src="assets/ayer.jpg" alt="Alumnos históricos del club" class="timeline-item__img">
+            <div class="timeline-item__caption">Foto histórica: Primeros alumnos del club en la red</div>
+          </div>
+        </div>
+
+        <!-- HITO 2: 1990s - 2010s -->
+        <div class="timeline-item" data-step="2">
+          <div class="timeline-node"></div>
+          <div class="timeline-item__content">
+            <span class="timeline-item__era">Años 90 & 2000 · Familia</span>
+            <h3 class="timeline-item__title">"Mi padre jugó aquí. Yo jugué aquí. Ahora mi sobrina juega aquí."</h3>
+            <p class="timeline-item__text">
+              El club trascendió como una institución formadora de vida. Los niños de los años 80 crecieron y trajeron a sus propios hijos y sobrinos. Tres generaciones han compartido la misma red, forjando un lazo social imborrable para Arica.
+            </p>
+          </div>
+          <div class="timeline-item__media" onclick="openLightbox('assets/generaciones.jpg', 'Diplomas y generaciones en el club')">
+            <img src="assets/generaciones.jpg" alt="Generaciones en el club" class="timeline-item__img">
+            <div class="timeline-item__caption">Tradición familiar: Entrega de diplomas a nuevas promesas</div>
+          </div>
+        </div>
+
+        <!-- HITO 3: Actualidad -->
+        <div class="timeline-item" data-step="3">
+          <div class="timeline-node"></div>
+          <div class="timeline-item__content">
+            <span class="timeline-item__era">Actualidad 2026 · Comunidad Activa</span>
+            <h3 class="timeline-item__title">Canchas Llenas y Formación Diaria</h3>
+            <p class="timeline-item__text">
+              El club no está en abandono: está más vivo que nunca. Todas las semanas entrenan decenas de menores en sus escuelas de iniciación, deportistas federados ganando medallas regionales y adultos mayores que encuentran en el tenis salud física y mental.
+            </p>
+          </div>
+          <div class="timeline-item__media" onclick="openLightbox('fotos jugadores del club/jugador 1.jpeg', 'Pasión deportiva: Jugadora celebrando un punto decisivo')">
+            <img src="fotos jugadores del club/jugador 1.jpeg" alt="Escuela de tenis activa" class="timeline-item__img">
+            <div class="timeline-item__caption">Hoy: Pasión, garra y formación deportiva en Cancha N°1</div>
+          </div>
+        </div>
+
+        <!-- HITO 4: El Desalojo -->
+        <div class="timeline-item era-danger" data-step="4">
+          <div class="timeline-node"></div>
+          <div class="timeline-item__content">
+            <span class="timeline-item__era">El Conflicto Actual</span>
+            <h3 class="timeline-item__title">La Solicitud de Desalojo Municipal</h3>
+            <p class="timeline-item__text">
+              El alcalde de la Municipalidad de Arica, Orlando Vargas, solicitó el desalojo del predio. Una decisión que deja a cientos de personas sin su lugar de entrenamiento e interrumpe procesos deportivos construidos con esfuerzo autónomo durante cuatro décadas.
+            </p>
+          </div>
+          <div class="timeline-item__media" onclick="openLightbox('assets/cancha-ocaso.jpg', 'Cancha oficial del club al atardecer frente a la orden de desalojo')">
+            <img src="assets/cancha-ocaso.jpg" alt="Canchas del club en riesgo" class="timeline-item__img">
+            <div class="timeline-item__caption">Patrimonio en riesgo: La casa del tenis ariqueño por más de 40 años</div>
+          </div>
+        </div>
+
+        <!-- HITO 5: La Propuesta -->
+        <div class="timeline-item" data-step="5">
+          <div class="timeline-node"></div>
+          <div class="timeline-item__content">
+            <span class="timeline-item__era">Propuesta Ciudadana</span>
+            <h3 class="timeline-item__title">"Alcalde Orlando Vargas, conversemos"</h3>
+            <p class="timeline-item__text">
+              El tenis de Arica no debería perder espacios. Nuestra propuesta es constructiva y abierta: sentémonos a conversar, firmemos convenios de colaboración y cuidemos juntos un patrimonio que beneficia a toda la ciudadanía.
+            </p>
+            <div style="margin-top: 18px;">
+              <a href="#carta" class="btn btn--gold btn--sm">Respaldar la Propuesta →</a>
+            </div>
+          </div>
+          <div class="timeline-item__media" onclick="openLightbox('post 4.jpg', 'Llamado al diálogo al alcalde Orlando Vargas')">
+            <img src="post 4.jpg" alt="Llamado al alcalde" class="timeline-item__img">
+            <div class="timeline-item__caption">La voz del club: sumar, crecer y construir juntos</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECCIÓN: COMPARATIVA VISUAL (ANTES Y AHORA)
+         ======================================================== -->
+    <section class="compare-section" id="comparativa">
+      <div class="compare-card">
+        <div class="compare-info">
+          <span class="section-head__tag">Misma Red, 40 Años Después</span>
+          <h3>El Tiempo Pasa, la Pasión Permanece</h3>
+          <p>
+            Arrastra el deslizador interactivo para comparar a las primeras promesas de la década de 1980 con los alumnos que entrenan hoy en la misma cancha.
+          </p>
+          <div class="compare-quote">
+            "Cambiaron las raquetas y las zapatillas, pero la ilusión y el amor por Arica siguen exactamente iguales."
+          </div>
+        </div>
+
+        <!-- Deslizador Interactivo de Comparación -->
+        <div class="slider-container" id="compareSlider">
+          <img src="assets/hoy.jpg" alt="Alumnos hoy" class="slider-img">
+          <img src="assets/ayer.jpg" alt="Alumnos ayer" class="slider-img slider-img--before" id="sliderBefore">
+          
+          <div class="slider-divider" id="sliderDivider"></div>
+          <div class="slider-handle" id="sliderHandle">↔</div>
+          
+          <span class="slider-pill slider-pill--before">Inicios (1980s)</span>
+          <span class="slider-pill slider-pill--after">Presente (2026)</span>
+          
+          <input type="range" min="0" max="100" value="50" class="slider-range-input" id="sliderRange" aria-label="Comparador visual antes y ahora">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECCIÓN: VOCES Y DECLARACIONES (MULTIMEDIA)
+         ======================================================== -->
+    <section class="voices-section" id="voces">
+      <div class="section-head">
+        <span class="section-head__tag">Declaraciones y Testimonios</span>
+        <h2 class="section-head__title">Las Voces del Club Escuela de Tenis</h2>
+        <p class="section-head__desc">
+          Testimonios en primera persona de profesores, familias y ex-alumnos que defienden la permanencia de nuestras canchas.
+        </p>
+      </div>
+
+      <div class="voices-grid">
+        
+        <!-- Tarjeta 1: Declaración en el Concejo Comunal -->
+        <div class="voice-card">
+          <div class="voice-card__thumb" onclick="openVideoModal('Intervención en el Concejo Comunal', 'Defensa de las Canchas del Club', 'assets/cancha-ocaso.jpg', 'video congreso comunal.mp4')">
+            <img src="assets/cancha-ocaso.jpg" alt="Concejo Comunal de Arica" class="voice-card__img">
+            <span class="voice-card__badge">Concejo Comunal</span>
+            <div class="voice-card__play-btn">▶</div>
+          </div>
+          <div class="voice-card__body">
+            <div>
+              <h3 class="voice-card__name">Voz en el Concejo Comunal</h3>
+              <div class="voice-card__role">Defensa Institucional de Arica</div>
+              <p class="voice-card__quote">
+                "Presentamos con fuerza y claridad la postura del club: cuatro décadas de autogestión, formación deportiva y derecho a la continuidad en nuestras canchas."
+              </p>
+            </div>
+            <button class="btn btn--outline btn--sm" onclick="openVideoModal('Intervención en el Concejo Comunal', 'Defensa de las Canchas del Club', 'assets/cancha-ocaso.jpg', 'video congreso comunal.mp4')">
+              Ver Intervención ▶
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Testimonio de Jugadores y Escuela -->
+        <div class="voice-card">
+          <div class="voice-card__thumb" onclick="openVideoModal('Testimonio del Club: Comunidad y Deporte', 'Jugadores y Escuela Formativa', 'assets/escuela.jpg', 'testimonio 1.mp4')">
+            <img src="assets/escuela.jpg" alt="Testimonio de deportista" class="voice-card__img">
+            <span class="voice-card__badge">Testimonio</span>
+            <div class="voice-card__play-btn">▶</div>
+          </div>
+          <div class="voice-card__body">
+            <div>
+              <h3 class="voice-card__name">Deportistas y Alumnos</h3>
+              <div class="voice-card__role">Escuela Infantil y Juvenil</div>
+              <p class="voice-card__quote">
+                "Aquí aprendemos respeto, juego limpio y superación personal. Quitarle el predio al tenis es arrebatarle el futuro deportivo a la juventud ariqueña."
+              </p>
+            </div>
+            <button class="btn btn--outline btn--sm" onclick="openVideoModal('Testimonio del Club: Comunidad y Deporte', 'Jugadores y Escuela Formativa', 'assets/escuela.jpg', 'testimonio 1.mp4')">
+              Ver Testimonio ▶
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Testimonio Jubilados / Adultos Mayores -->
+        <div class="voice-card">
+          <div class="voice-card__thumb" onclick="openVideoModal('Testimonio de Socios Históricos y Jubilados', 'Tradición de Toda una Vida', 'fotos jugadores del club/club actual 1.jpeg', 'juvilado testimonio 1.mp4')">
+            <img src="fotos jugadores del club/club actual 1.jpeg" alt="Socios adultos mayores" class="voice-card__img">
+            <span class="voice-card__badge">Adultos Mayores</span>
+            <div class="voice-card__play-btn">▶</div>
+          </div>
+          <div class="voice-card__body">
+            <div>
+              <h3 class="voice-card__name">Socios Históricos y Jubilados</h3>
+              <div class="voice-card__role">Vida Sana e Inclusión Social</div>
+              <p class="voice-card__quote">
+                "Para nosotros el club no es solo deporte, es nuestro espacio de encuentro, vitalidad y salud para los adultos mayores. Exigimos respeto por nuestra trayectoria."
+              </p>
+            </div>
+            <button class="btn btn--outline btn--sm" onclick="openVideoModal('Testimonio de Socios Históricos y Jubilados', 'Tradición de Toda una Vida', 'fotos jugadores del club/club actual 1.jpeg', 'juvilado testimonio 1.mp4')">
+              Ver Testimonio ▶
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECCIÓN: CARTA ABIERTA AL ALCALDE & FIRMA DIGITAL
+         ======================================================== -->
+    <section class="letter-section" id="carta">
+      <div class="letter-card">
+        <div class="letter-header">
+          <div>
+            <span class="section-head__tag">Carta Abierta Ciudadana</span>
+            <h2 class="letter-title">
+              Alcalde Orlando Vargas: <br>
+              <span>Conversemos por el Tenis de Arica.</span>
+            </h2>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">Ilustre Municipalidad de Arica</span>
+          </div>
+        </div>
+
+        <div class="letter-body">
+          <p>
+            Los socios, profesores, familias, alumnos infantiles y adultos mayores que formamos el <strong>Club Escuela de Tenis Arica</strong> nos dirigimos respetuosamente a usted para manifestar nuestra honda inquietud ante la orden de desalojo de nuestro recinto.
+          </p>
+          <p>
+            Durante más de cuatro décadas hemos protegido este espacio con financiamiento autónomo, formando a deportistas que representan a nuestra región y ofreciendo actividad física sana a niños y personas de la tercera edad.
+          </p>
+          <div class="letter-highlight">
+            "El tenis de Arica no debería perder espacios. Encontremos la manera de sumar, crecer y construir juntos una solución definitiva."
+          </div>
+          <p>
+            Solicitamos abrir formalmente una <strong>Mesa de Diálogo</strong> para presentar un plan conjunto de convenios municipales y proyectos comunitarios para la ciudad.
+          </p>
+        </div>
+
+        <!-- Formulario de Firma y Apoyo -->
+        <div class="petition-box" id="petitionBox">
+          <div class="signature-counter-box">
+            <div class="signature-counter-header">
+              <div class="counter-number"><span id="signatureCount">1,482</span> <span>firmas ciudadanas</span></div>
+              <div class="counter-goal">Meta: 2,000 firmas para la mesa de diálogo</div>
+            </div>
+            <div class="counter-bar-track">
+              <div class="counter-bar-fill" id="signatureBar" style="width: 74%;"></div>
+            </div>
+          </div>
+
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 6px;">
+            Súmate con tu firma ciudadana:
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+            Tu adhesión respalda el llamado al diálogo ante las autoridades.
+          </p>
+
+          <form id="petitionForm" onsubmit="handlePetitionSubmit(event)">
+            <div class="petition-grid">
+              <div class="form-group">
+                <label>Nombre y Apellido *</label>
+                <input type="text" id="signerName" required placeholder="Tu nombre completo" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>Correo Electrónico o Teléfono *</label>
+                <input type="text" id="signerContact" required placeholder="contacto@correo.cl o +56 9..." class="form-input">
+              </div>
+            </div>
+
+            <label class="form-checkbox">
+              <input type="checkbox" id="signerConsent" required checked>
+              <span>Acepto sumar mi nombre al petitorio en defensa del Club Escuela de Tenis Arica.</span>
+            </label>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+              <button type="submit" class="btn btn--gold">
+                Firmar Petitorio de Apoyo
+              </button>
+              <button type="button" class="btn btn--whatsapp" onclick="shareWhatsApp()">
+                Compartir por WhatsApp
+              </button>
+              <span id="petitionStatus" style="font-size: 0.88rem; color: var(--tenis-gold); font-weight: 700;"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECCIÓN: MURO COMUNITARIO ("DEJA TU MOMENTO FELIZ")
+         ======================================================== -->
+    <section class="community-section" id="muro">
+      <div class="section-head">
+        <span class="section-head__tag">Lienzo de la Comunidad</span>
+        <h2 class="section-head__title">Deja tu Foto y tu Momento Feliz en el Club</h2>
+        <p class="section-head__desc">
+          "Este club es parte de nosotros." 40 años de historias, emociones y recuerdos que merecen seguir viviendo.
+        </p>
+      </div>
+
+      <!-- Lienzo Oficial: Inspirado en lienso 1 ejemplo colores -->
+      <div style="max-width: 1200px; margin: 0 auto 40px auto;">
+        <div class="lienzo-banner">
+          <div class="lienzo-banner__top">
+            <div class="lienzo-banner__brand">
+              <img src="assets/logo-horizontal-claro.png" alt="Club Escuela de Tenis Arica" class="lienzo-banner__logo">
+            </div>
+            <div class="lienzo-banner__title">
+              Deja tu foto y tu <span class="highlight-volt">momento feliz</span> en el club
+            </div>
+            <svg class="tennis-ball-speed" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 50 C 30 35, 55 18, 75 16" stroke="#ccff00" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+              <path d="M18 55 C 38 42, 62 25, 82 22" stroke="#ccff00" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+              <circle cx="82" cy="18" r="14" fill="#ccff00"/>
+              <path d="M74 9 C 78 14, 78 22, 74 27" stroke="#051026" stroke-width="1.8" fill="none"/>
+              <path d="M90 9 C 86 14, 86 22, 90 27" stroke="#051026" stroke-width="1.8" fill="none"/>
+            </svg>
+          </div>
+
+          <div class="photo-gallery-grid">
+            <div class="photo-gallery-item" onclick="openLightbox('fotos jugadores del club/club antiguo 1.jpeg', '1980s: Los inicios en las canchas de polvo de ladrillo')">
+              <img src="fotos jugadores del club/club antiguo 1.jpeg" alt="Inicios del club">
+              <span class="photo-gallery-item__badge">1980s · Primeras canchas</span>
+            </div>
+            <div class="photo-gallery-item" onclick="openLightbox('fotos jugadores del club/jugadores 1.jpeg', '1990s: Premiación y diplomas históricos Hucke McKay')">
+              <img src="fotos jugadores del club/jugadores 1.jpeg" alt="Diplomas históricos">
+              <span class="photo-gallery-item__badge">1990s · Premiación histórica</span>
+            </div>
+            <div class="photo-gallery-item" onclick="openLightbox('fotos jugadores del club/jugador 1.jpeg', 'Presente: Emoción y pasión en cada punto disputado')">
+              <img src="fotos jugadores del club/jugador 1.jpeg" alt="Pasión formativa">
+              <span class="photo-gallery-item__badge">2026 · Pasión formativa</span>
+            </div>
+            <div class="photo-gallery-item" onclick="openLightbox('fotos jugadores del club/club actual 1.jpeg', 'Comunidad: Gran encuentro de familias y vecinos')">
+              <img src="fotos jugadores del club/club actual 1.jpeg" alt="Encuentro familiar">
+              <span class="photo-gallery-item__badge">Comunidad · Familias unidas</span>
+            </div>
+            <div class="photo-gallery-item" onclick="openLightbox('assets/escuela.jpg', 'Hoy: Más de 30 niñas y niños con medallas en la red')">
+              <img src="assets/escuela.jpg" alt="Escuela formativa">
+              <span class="photo-gallery-item__badge">Escuela · Nuevas promesas</span>
+            </div>
+            <div class="photo-gallery-item" onclick="openLightbox('assets/torneo.jpg', 'Torneo Oficial: Premiaciones en Cancha N°1')">
+              <img src="assets/torneo.jpg" alt="Torneo oficial">
+              <span class="photo-gallery-item__badge">Torneo · Cancha N°1</span>
+            </div>
+          </div>
+
+          <div class="lienzo-banner__footer">
+            Este club es parte de nosotros
+          </div>
+        </div>
+      </div>
+
+      <div class="memory-board">
+        <!-- Formulario para Publicar -->
+        <div class="memory-form-card">
+          <h3>Publica tu Recuerdo</h3>
+          <p>Se sumará al muro en tiempo real:</p>
+
+          <form id="memoryForm" onsubmit="handleMemorySubmit(event)">
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label>Tu Nombre *</label>
+              <input type="text" id="memAuthor" required placeholder="Ej: Marcelo Rojas" class="form-input">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label>Tu Vínculo con el Club *</label>
+              <select id="memRole" class="form-input" style="background: #15254f;">
+                <option value="Alumno o Alumna">Alumno / Alumna actual</option>
+                <option value="Ex-alumno Histórico">Ex-alumno histórico</option>
+                <option value="Padre o Familia">Padre, Madre o Familia</option>
+                <option value="Adulto Mayor">Socio Adulto Mayor</option>
+                <option value="Vecino Solidario">Vecino de Arica</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label>Año del recuerdo (opcional)</label>
+              <input type="text" id="memYear" placeholder="Ej: 1994 o 2026" class="form-input">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label>Tu Momento Feliz o Mensaje *</label>
+              <textarea id="memText" required rows="3" placeholder="Cuéntanos tu momento más feliz en la cancha o por qué apoyas al club..." class="form-input"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--gold" style="width: 100%;">
+              Publicar en el Muro
+            </button>
+          </form>
+        </div>
+
+        <!-- Muro de Recuerdos -->
+        <div class="memory-grid" id="memoryGrid">
+          <!-- Los recuerdos se cargarán dinámicamente mediante JavaScript -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__brand">
+        <img src="assets/logo-pelota.png" alt="Escudo Tenis Arica" class="footer__logo">
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: #fff;">
+            Club Escuela de Tenis Arica
+          </h4>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">
+            Más de 40 años formando al deporte de Arica · 1984 - 2026
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <button class="btn btn--whatsapp btn--sm" onclick="shareWhatsApp()">
+          Compartir en WhatsApp
+        </button>
+        <a href="#hero" class="btn btn--outline btn--sm">
+          Volver Arriba ↑
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__copy">
+      Campaña ciudadana y comunitaria en defensa del Club Escuela de Tenis Arica.
+    </div>
+  </footer>
+
+  <!-- Modal de Reproductor de Video -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeVideoModal()">×</button>
+      <div class="modal-body" id="videoModalBody"></div>
+      <div class="modal-footer">
+        <h4 id="videoModalTitle">Título del Video</h4>
+        <p id="videoModalRole">Participante</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Lightbox para Fotos -->
+  <div class="modal-overlay" id="lightboxModal" onclick="closeLightbox()">
+    <div class="modal-card" style="max-width: 800px; background: transparent; box-shadow: none;" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeLightbox()">×</button>
+      <div style="text-align: center;">
+        <img id="lightboxImg" src="" alt="Ampliación" style="max-height: 75vh; width: auto; margin: 0 auto; border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.8);">
+        <p id="lightboxCaption" style="margin-top: 14px; font-size: 0.95rem; color: #fff; background: rgba(7,13,30,0.85); display: inline-block; padding: 6px 18px; border-radius: 20px;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

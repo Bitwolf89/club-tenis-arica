@@ -1,0 +1,8 @@
+# Archivos temporales de test y scripts internos
+shot_*.png
+scripts/
+.agents/
+skills-lock.json
+*.log
+.DS_Store
+Thumbs.db
