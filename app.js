@@ -10,12 +10,31 @@ gsap.registerPlugin(ScrollTrigger);
 // ==========================================
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('navbar--scrolled');
-  } else {
-    navbar.classList.remove('navbar--scrolled');
-  }
+  navbar.classList.toggle('navbar--scrolled', window.scrollY > 50);
+  if (navbar.classList.contains('navbar--open')) setNavOffset();
+}, { passive: true });
+
+// Menú móvil (hamburguesa)
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+function setNavOffset() {
+  const bottom = Math.max(0, navbar.getBoundingClientRect().bottom);
+  document.documentElement.style.setProperty('--nav-offset', `${bottom}px`);
+}
+
+function closeNav() {
+  navbar.classList.remove('navbar--open');
+  navToggle?.setAttribute('aria-expanded', 'false');
+}
+
+navToggle?.addEventListener('click', () => {
+  setNavOffset();
+  const open = navbar.classList.toggle('navbar--open');
+  navToggle.setAttribute('aria-expanded', String(open));
 });
+navMenu?.querySelectorAll('a, button').forEach(el => el.addEventListener('click', closeNav));
+window.addEventListener('resize', () => { if (window.innerWidth > 1024) closeNav(); });
 
 // ==========================================
 // 2. HERO ANIMATIONS (ENTRADA FLUIDA Y PARALLAX)

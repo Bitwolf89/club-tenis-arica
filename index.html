@@ -24,11 +24,11 @@
   <!-- Alerta Cívica Superior -->
   <div class="alert-banner">
     <div class="alert-banner__inner">
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span class="alert-badge">Causa Urgente</span>
-        <span>El alcalde Orlando Vargas solicitó el desalojo de más de 40 años de historia deportiva.</span>
+      <div class="alert-banner__msg">
+        <span class="alert-badge">Causa urgente</span>
+        <span class="alert-banner__text">El alcalde Orlando Vargas solicitó el desalojo de más de 40 años de historia deportiva.</span>
       </div>
-      <a href="#carta" class="alert-link">Firmar Carta de Apoyo →</a>
+      <a href="#carta" class="alert-link">Firmar apoyo →</a>
     </div>
   </div>
 
@@ -39,21 +39,28 @@
         <img src="assets/logo-horizontal-claro.png" alt="Club Escuela de Tenis Arica" class="navbar__logo">
       </a>
       
-      <nav class="navbar__nav">
-        <a href="#historia" class="navbar__link">Historia y Cronología</a>
+      <nav class="navbar__nav" id="navMenu">
+        <a href="#historia" class="navbar__link">Historia</a>
         <a href="#comparativa" class="navbar__link">Antes y Ahora</a>
         <a href="#voces" class="navbar__link">Voces del Club</a>
         <a href="#carta" class="navbar__link">Carta al Alcalde</a>
-        <a href="#muro" class="navbar__link">Muro Comunitario</a>
+        <a href="#muro" class="navbar__link">Muro</a>
+        <div class="navbar__mobile-actions">
+          <button class="btn btn--whatsapp" type="button" onclick="shareWhatsApp()">Compartir por WhatsApp</button>
+          <a href="#carta" class="btn btn--gold">Firmar Apoyo</a>
+        </div>
       </nav>
 
       <div class="navbar__actions">
-        <button class="btn btn--whatsapp btn--sm" type="button" onclick="shareWhatsApp()">
-          Compartir WhatsApp
+        <button class="btn btn--whatsapp btn--sm navbar__wa" type="button" onclick="shareWhatsApp()">
+          Compartir
         </button>
         <a href="#carta" class="btn btn--gold btn--sm">
           Firmar Apoyo
         </a>
+        <button class="navbar__toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
