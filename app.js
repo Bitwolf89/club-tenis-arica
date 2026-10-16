@@ -1,6 +1,6 @@
 /* ==========================================================================
    Club Escuela de Tenis Arica · Sistema de Movimiento e Interacción (v4)
-   Motor de scroll fluido con Lenis + GSAP ScrollTrigger
+   Scroll nativo de alta velocidad + GSAP ScrollTrigger + Anclas de precisión
    ========================================================================== */
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,51 +9,13 @@ gsap.defaults({ ease: "power3.out", duration: 0.85 });
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ==========================================
-// 1. MOTOR DE SCROLL FLUIDO (LENIS + GSAP)
-// ==========================================
-let lenis = null;
-
-if (!reduceMotion && typeof Lenis !== "undefined") {
-  lenis = new Lenis({
-    lerp: 0.16,
-    smoothWheel: true,
-    wheelMultiplier: 1.65,
-    touchMultiplier: 1.5,
-    anchors: true
-  });
-
-  window.__lenis = lenis;
-
-  lenis.on("scroll", ScrollTrigger.update);
-
-  gsap.ticker.add((time) => {
-    // Si una prueba automatizada desactiva scrollBehavior, pausamos interpolación
-    if (document.documentElement.style.scrollBehavior === "auto") {
-      return;
-    }
-    lenis.raf(time * 1000);
-  });
-
-  gsap.ticker.lagSmoothing(0);
-
-  // Sincronizar llamadas programáticas instantáneas a window.scrollTo
-  const nativeScrollTo = window.scrollTo.bind(window);
-  window.scrollTo = function (...args) {
-    nativeScrollTo(...args);
-    if (args[0] && typeof args[0] === "object" && args[0].behavior === "instant" && lenis) {
-      lenis.scrollTo(args[0].top ?? 0, { immediate: true });
-      ScrollTrigger.update();
-    }
-  };
-}
-
-// ==========================================
-// 2. BARRA DE NAVEGACIÓN & PROGRESO SUPERIOR
+// 1. BARRA DE NAVEGACIÓN & PROGRESO SUPERIOR
 // ==========================================
 const navbar = document.getElementById("navbar");
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 const pageScrollProgress = document.getElementById("pageScrollProgress");
+const navLinks = document.querySelectorAll(".navbar__link");
 
 function setNavOffset() {
   if (!navbar) return;
@@ -85,16 +47,89 @@ navToggle?.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", String(open));
 });
 
-navMenu?.querySelectorAll("a, button").forEach((el) => {
-  el.addEventListener("click", closeNav);
-});
-
 window.addEventListener("resize", () => {
   if (window.innerWidth > 1024) closeNav();
 });
 
-// Resaltar sección activa en la barra de navegación
-const navLinks = document.querySelectorAll(".navbar__link");
+// ==========================================
+// 2. NAVEGACIÓN POR PESTAÑAS CON PRECISIÓN EXACTA
+// ==========================================
+let activeAnchorTween = null;
+
+function cancelAnchorTween() {
+  if (activeAnchorTween) {
+    activeAnchorTween.kill();
+    activeAnchorTween = null;
+  }
+}
+
+// Si el usuario gira la rueda del ratón o toca la pantalla, el control pasa de inmediato a su mano
+window.addEventListener("wheel", cancelAnchorTween, { passive: true });
+window.addEventListener("touchstart", cancelAnchorTween, { passive: true });
+
+function getTargetScrollY(targetEl, targetId) {
+  if (targetId === "hero") return 0;
+  const navHeight = navbar ? navbar.offsetHeight : 72;
+  const rectTop = targetEl.getBoundingClientRect().top + window.scrollY;
+  return Math.max(0, Math.round(rectTop - navHeight));
+}
+
+function scrollToSection(hash) {
+  if (!hash || !hash.startsWith("#") || hash === "#") return;
+  const targetId = hash.slice(1);
+  const targetEl = document.getElementById(targetId);
+  if (!targetEl) return;
+
+  closeNav();
+  cancelAnchorTween();
+
+  // Actualizar pestaña activa inmediatamente
+  navLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === hash);
+  });
+
+  if (history.pushState) {
+    history.pushState(null, "", hash);
+  }
+
+  if (reduceMotion) {
+    window.scrollTo(0, getTargetScrollY(targetEl, targetId));
+    ScrollTrigger.refresh();
+    return;
+  }
+
+  const startY = window.scrollY;
+  const state = { progress: 0 };
+
+  activeAnchorTween = gsap.to(state, {
+    progress: 1,
+    duration: 0.36,
+    ease: "power2.out",
+    onUpdate: () => {
+      const destY = getTargetScrollY(targetEl, targetId);
+      const nextY = Math.round(startY + (destY - startY) * state.progress);
+      window.scrollTo(0, nextY);
+    },
+    onComplete: () => {
+      activeAnchorTween = null;
+      window.scrollTo(0, getTargetScrollY(targetEl, targetId));
+      ScrollTrigger.refresh();
+    }
+  });
+}
+
+document.addEventListener("click", (e) => {
+  const anchor = e.target.closest('a[href^="#"]');
+  if (!anchor) return;
+  const href = anchor.getAttribute("href");
+  if (!href || href === "#") return;
+  const targetEl = document.getElementById(href.slice(1));
+  if (!targetEl) return;
+  e.preventDefault();
+  scrollToSection(href);
+});
+
+// Resaltar sección activa en la barra de navegación al hacer scroll con el mouse
 const trackedSections = ["historia", "comparativa", "voces", "carta", "muro"];
 
 trackedSections.forEach((id) => {
@@ -102,10 +137,10 @@ trackedSections.forEach((id) => {
   if (!section) return;
   ScrollTrigger.create({
     trigger: section,
-    start: "top 45%",
-    end: "bottom 45%",
+    start: "top 35%",
+    end: "bottom 35%",
     onToggle: (self) => {
-      if (self.isActive) {
+      if (self.isActive && !activeAnchorTween) {
         navLinks.forEach((link) => {
           link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
         });
@@ -393,7 +428,6 @@ function openVideoModal(title, role, poster, videoUrl = "") {
 
   videoModal.classList.add("active");
   document.body.style.overflow = "hidden";
-  lenis?.stop();
 }
 
 function closeVideoModal() {
@@ -407,7 +441,6 @@ function closeVideoModal() {
   }
   videoModalBody.innerHTML = "";
   document.body.style.overflow = "";
-  lenis?.start();
 }
 
 // ==========================================
@@ -423,14 +456,12 @@ function openLightbox(src, caption) {
   if (lightboxCaption) lightboxCaption.textContent = caption || "";
   lightboxModal.classList.add("active");
   document.body.style.overflow = "hidden";
-  lenis?.stop();
 }
 
 function closeLightbox() {
   if (!lightboxModal) return;
   lightboxModal.classList.remove("active");
   document.body.style.overflow = "";
-  lenis?.start();
 }
 
 window.addEventListener("keydown", (e) => {

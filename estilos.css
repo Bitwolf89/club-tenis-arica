@@ -70,22 +70,7 @@ html {
   font-size: 16px;
   background-color: var(--bg-ivory);
   color: var(--ink-primary);
-}
-
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -93,7 +78,7 @@ body {
   line-height: 1.65;
   color: var(--ink-primary);
   background-color: var(--bg-ivory);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -111,7 +96,7 @@ img, video, iframe {
 }
 
 section[id] {
-  scroll-margin-top: 84px;
+  scroll-margin-top: 76px;
 }
 
 :focus-visible {
