@@ -15,9 +15,9 @@ let lenis = null;
 
 if (!reduceMotion && typeof Lenis !== "undefined") {
   lenis = new Lenis({
-    lerp: 0.085,
+    lerp: 0.16,
     smoothWheel: true,
-    wheelMultiplier: 0.95,
+    wheelMultiplier: 1.65,
     touchMultiplier: 1.5,
     anchors: true
   });
@@ -157,13 +157,13 @@ mm.add(
 
     // 3.2 Franja de evidencia
     gsap.from(".evidence-item", {
-      y: 24,
+      y: 18,
       autoAlpha: 0,
-      duration: 0.75,
-      stagger: 0.08,
+      duration: 0.55,
+      stagger: 0.06,
       scrollTrigger: {
         trigger: ".evidence-strip",
-        start: "top 85%",
+        start: "top 90%",
         once: true
       }
     });
@@ -171,13 +171,13 @@ mm.add(
     // 3.3 Revelado de cabeceras de sección
     gsap.utils.toArray(".section-head").forEach((head) => {
       gsap.from(head.children, {
-        y: 20,
+        y: 16,
         autoAlpha: 0,
-        duration: 0.75,
-        stagger: 0.08,
+        duration: 0.55,
+        stagger: 0.06,
         scrollTrigger: {
           trigger: head,
-          start: "top 84%",
+          start: "top 90%",
           once: true
         }
       });
@@ -185,28 +185,28 @@ mm.add(
 
     // 3.4 Tarjetas de Voces y Galería
     ScrollTrigger.batch(".voice-card", {
-      start: "top 84%",
+      start: "top 90%",
       once: true,
       onEnter: (batch) => {
         gsap.from(batch, {
-          y: 28,
+          y: 20,
           autoAlpha: 0,
-          duration: 0.8,
-          stagger: 0.09,
+          duration: 0.55,
+          stagger: 0.06,
           overwrite: true
         });
       }
     });
 
     ScrollTrigger.batch(".photo-gallery-item", {
-      start: "top 86%",
+      start: "top 90%",
       once: true,
       onEnter: (batch) => {
         gsap.from(batch, {
-          y: 22,
+          y: 16,
           autoAlpha: 0,
-          duration: 0.75,
-          stagger: 0.06,
+          duration: 0.5,
+          stagger: 0.04,
           overwrite: true
         });
       }
@@ -222,9 +222,9 @@ const timelineProgress = document.getElementById("timelineProgress");
 
 ScrollTrigger.create({
   trigger: ".timeline-wrap",
-  start: "top 68%",
-  end: "bottom 58%",
-  scrub: 0.5,
+  start: "top 72%",
+  end: "bottom 55%",
+  scrub: 0.2,
   onUpdate: (self) => {
     if (timelineProgress) {
       timelineProgress.style.height = `${(self.progress * 100).toFixed(1)}%`;
@@ -235,8 +235,8 @@ ScrollTrigger.create({
 timelineItems.forEach((item) => {
   ScrollTrigger.create({
     trigger: item,
-    start: "top 66%",
-    end: "bottom 42%",
+    start: "top 70%",
+    end: "bottom 40%",
     onEnter: () => item.classList.add("active"),
     onEnterBack: () => item.classList.add("active"),
     onLeave: () => item.classList.remove("active"),
@@ -249,13 +249,13 @@ timelineItems.forEach((item) => {
 
     if (content) {
       gsap.from(content, {
-        y: 28,
+        y: 20,
         autoAlpha: 0,
-        duration: 0.8,
+        duration: 0.55,
         ease: "power3.out",
         scrollTrigger: {
           trigger: item,
-          start: "top 82%",
+          start: "top 88%",
           once: true
         }
       });
@@ -263,14 +263,14 @@ timelineItems.forEach((item) => {
 
     if (media) {
       gsap.from(media, {
-        y: 28,
-        scale: 0.98,
+        y: 20,
+        scale: 0.99,
         autoAlpha: 0,
-        duration: 0.85,
+        duration: 0.6,
         ease: "power3.out",
         scrollTrigger: {
           trigger: item,
-          start: "top 82%",
+          start: "top 88%",
           once: true
         }
       });
